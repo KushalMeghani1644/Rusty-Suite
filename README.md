@@ -65,8 +65,8 @@ rusty-suite/
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/KushalMeghani1644/rusty-suite.git
-   cd rusty-suite
+   git clone https://github.com/KushalMeghani1644/Rusty-Suite.git
+   cd Rusty-Suite
    ```
 
 2. **Open the website**:
