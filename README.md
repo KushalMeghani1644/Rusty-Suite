@@ -4,7 +4,7 @@
 
 ## 🌐 Live Website
 
-**Visit the live website:** [kushalmeghani1644.github.io/rusty-suite](https://kushalmeghani1644.github.io/Rusty-Suite)
+**Visit the live website:** [rusty-suite.tech](rusty-suite.tech)
 
 ## Trademark Notice
 The names “Rusty-Suite”, “RustyTodos”, “RustyBoot”, and “Rusty-Checker” are part of this project’s identity.  
