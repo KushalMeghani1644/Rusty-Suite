@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async crossorigin src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="clerk-publishable-key" content="pk_test_ZGVjZW50LWRydW0tODQuY2xlcmsuYWNjb3VudHMuZGV2JA"> <!-- Clerk publishable key -->
+    
     <title>Rusty-Suite | Modern Rust Applications</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -104,7 +103,7 @@
                     <a href="#about" class="nav-item text-gray-300 hover:text-rust-400 font-medium">About</a>
                     <a href="#contact" class="nav-item text-gray-300 hover:text-rust-400 font-medium">Contact</a>
                 </div>
-                <div id="auth-slot" class="hidden md:flex items-center"></div>
+                
                 <div class="md:hidden">
                     <button id="mobile-menu-btn" class="text-gray-300 hover:text-rust-400 p-2" aria-label="Toggle menu">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -120,7 +119,7 @@
                 <a href="#projects" class="block px-3 py-2 text-gray-300 hover:text-rust-400">Projects</a>
                 <a href="#about" class="block px-3 py-2 text-gray-300 hover:text-rust-400">About</a>
                 <a href="#contact" class="block px-3 py-2 text-gray-300 hover:text-rust-400">Contact</a>
-                <div id="auth-slot-mobile" class="block px-3 py-2"></div>
+                
             </div>
         </div>
     </nav>
@@ -611,59 +610,6 @@
         });
     </script>
 
-    <script>
-    (function initClerk() {
-        const keyMeta = document.querySelector('meta[name="clerk-publishable-key"]');
-        const publishableKey = (keyMeta && keyMeta.content) || '';
-
-        async function renderAuth() {
-            try {
-                await Clerk.load({ publishableKey });
-            } catch (e) {
-                console.warn('Clerk failed to load. Make sure the publishable key is set.');
-                return;
-            }
-
-            const desktopSlot = document.getElementById('auth-slot');
-            const mobileSlot = document.getElementById('auth-slot-mobile');
-
-            function renderTo(slot) {
-                if (!slot) return;
-                slot.innerHTML = '';
-                if (Clerk.user) {
-                    Clerk.mountUserButton(slot);
-                } else {
-                    const btn = document.createElement('button');
-                    btn.className = 'px-4 py-2 rounded-xl bg-gradient-to-r from-rust-500 to-rust-600 text-white font-semibold hover:from-rust-600 hover:to-rust-700 transition-all';
-                    btn.textContent = 'Sign in';
-                    btn.addEventListener('click', () => {
-                        Clerk.openSignIn({
-                            appearance: { variables: { colorPrimary: '#ea7943' } },
-                            afterSignInUrl: window.location.href,
-                            afterSignUpUrl: window.location.href
-                        });
-                    });
-                    slot.appendChild(btn);
-                }
-            }
-
-            renderTo(desktopSlot);
-            renderTo(mobileSlot);
-        }
-
-        if (publishableKey && window.Clerk) {
-            renderAuth();
-            Clerk.addListener(({ user }) => {
-                // Re-render when auth state changes
-                renderAuth();
-            });
-        } else {
-            // Retry after window load if needed
-            window.addEventListener('load', () => {
-                if (publishableKey && window.Clerk) renderAuth();
-            });
-        }
-    })();
-    </script>
+    
 </body>
 </html>
